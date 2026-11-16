@@ -59,9 +59,23 @@ void test_getter_returns_copy() {
     CHECK(d.nome() == "Mario");
 }
 
+void test_equality() {
+    const dg::Demographic a{"Mario", "Rossi", "Milano", "RSSMRA80A01F205X"};
+    const dg::Demographic b{"Mario", "Rossi", "Milano", "RSSMRA80A01F205X"};
+    CHECK(a == b);
+    CHECK(!(a != b));
+    CHECK(dg::Demographic{} == dg::Demographic{});
+
+    CHECK(a != (dg::Demographic{"Luigi", "Rossi", "Milano", "RSSMRA80A01F205X"}));
+    CHECK(a != (dg::Demographic{"Mario", "Verdi", "Milano", "RSSMRA80A01F205X"}));
+    CHECK(a != (dg::Demographic{"Mario", "Rossi", "Roma", "RSSMRA80A01F205X"}));
+    CHECK(a != (dg::Demographic{"Mario", "Rossi", "Milano", "XXXXXXXXXXXXXXXX"}));
+}
+
 } // namespace
 
 int main() {
+    test_equality();
     test_default_constructor();
     test_full_constructor();
     test_setters();

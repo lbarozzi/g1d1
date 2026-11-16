@@ -75,9 +75,22 @@ void test_copy_is_independent() {
     CHECK(copy.nome() == "Marco");
 }
 
+void test_equality() {
+    const dg::MD a{"Leonardo", "Barozzi", "Torino", "BRZLRDXXXXXXX", "Proctologo"};
+    const dg::MD b{"Leonardo", "Barozzi", "Torino", "BRZLRDXXXXXXX", "Proctologo"};
+    CHECK(a == b);
+    CHECK(!(a != b));
+
+    // Same person, different specialty
+    CHECK(a != (dg::MD{"Leonardo", "Barozzi", "Torino", "BRZLRDXXXXXXX", "Cardiologo"}));
+    // Same specialty, different demographic data
+    CHECK(a != (dg::MD{"Marco", "Barozzi", "Torino", "BRZLRDXXXXXXX", "Proctologo"}));
+}
+
 } // namespace
 
 int main() {
+    test_equality();
     test_default_constructor();
     test_full_constructor();
     test_set_specialty();

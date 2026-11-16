@@ -34,4 +34,11 @@ void Demographic::set_codice_fiscale(const std::string& codice_fiscale) {
     codice_fiscale_ = codice_fiscale;
 }
 
+bool Demographic::operator==(const Demographic& other) const {
+    return name_ == other.name_ &&
+           surname_ == other.surname_ &&
+           luogo_nascita_ == other.luogo_nascita_ &&
+           codice_fiscale_ == other.codice_fiscale_;
+}
+
 } // namespace dg

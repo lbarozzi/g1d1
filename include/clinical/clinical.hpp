@@ -16,7 +16,7 @@ namespace clinicaldata {
 
     class Clinical{
         public:
-            //linical() = default;
+            Clinical() = default;
             Clinical(const std::string& clinical_data,
                      const ClinicalType& clinical_type,
                      const dg::MD& md,
@@ -28,7 +28,7 @@ namespace clinicaldata {
                   timestamp_(timestamp),
                   demographic_(demographic) {}
 
-            Clinical(const Clinical& Clinical) = delete;
+            Clinical(const Clinical&) = default;
             
             const std::string& clinical_data() const;
             void set_clinical_data(const std::string& clinical_data);

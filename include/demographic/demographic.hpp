@@ -17,6 +17,7 @@ namespace dg {
         void set_cognome(const std::string& surname);
         void set_luogo_nascita(const std::string& luogo_nascita);
         void set_codice_fiscale(const std::string& codice_fiscale);
+        bool operator==(const Demographic& other) const;
     protected:
         std::string name_;
         std::string surname_;

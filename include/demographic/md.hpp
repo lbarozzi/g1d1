@@ -12,6 +12,7 @@ namespace dg {
               specialty_(specialty) {}
         const std::string specialty() const;
         void set_specialty(const std::string& specialty);
+        bool operator==(const MD& other) const;
         protected:
         std::string specialty_;
 

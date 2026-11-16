@@ -12,6 +12,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(g1d1_lib
     src/g1d1.cpp
+    src/cartel.cpp
+    src/clinical.cpp
     src/md.cpp
     src/demographic.cpp
 )

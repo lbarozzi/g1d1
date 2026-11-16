@@ -1,4 +1,4 @@
-foreach(test_name IN ITEMS g1d1_test demographic_test md_test)
+foreach(test_name IN ITEMS g1d1_test demographic_test md_test cartel_test clinical_test)
     add_executable(${test_name} ${test_name}.cpp)
 
     target_link_libraries(${test_name}
